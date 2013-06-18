@@ -126,7 +126,7 @@ header {
 
 #smartSearch {
     height: 120px;
-    background: url("/img/lens.png") no-repeat left center;
+    background: url("../img/lens.png") no-repeat left center;
     padding-left: 80px;
     border-top: 2px solid #828e8a;
     border-bottom: 1px solid #46514f;
@@ -226,7 +226,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 #smartSearch .loader {
     float: right;
-    background: url('/img/loader.gif');
+    background: url('../img/loader.gif');
     display: block;
     width: 24px;
     height: 24px;
@@ -252,6 +252,10 @@ input[type="search"]::-webkit-search-results-decoration {
 #contactsList {
     width: 300px;
     float: left;
+}
+
+#contactsList dt{
+    text-transform: uppercase;
 }
 
 dl {
@@ -299,7 +303,7 @@ dd {
     margin: 0;
     padding: 0 0 5px 15px;
     white-space: nowrap;
-	  background-image: url("/img/arrows.png");
+	  background-image: url("../img/arrows.png");
      background: none;
      background-position: center center;
     -moz-transition: all .3s ease 0s;
@@ -307,7 +311,7 @@ dd {
 }
 
 dd:hover {
-    background: url("/img/arrows.png") #46514f center right no-repeat;
+    background: url("../img/arrows.png") #46514f center right no-repeat;
 }
 
 dd + dd {
@@ -410,7 +414,7 @@ a.cnt:hover {
   }
 }
 
-.formdesign .ng-invalid.ng-dirty {
+.formdesign div.error > input {
     -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: 1;
     -webkit-transition-timing-function: ease;
@@ -419,6 +423,14 @@ a.cnt:hover {
     transition-timing-function: ease;
     -webkit-animation-name: shake;
     animation-name: shake;
+}
+
+.formdesign div > span.errorMsg{
+    display : none;
+}
+
+.formdesign div.error > span.errorMsg{
+    display : inline-block;
 }
 
 .formdesign button, .btn {
@@ -457,11 +469,11 @@ a.cnt:hover {
 }
 a.back {
     text-indent: -9999px;
-    background: url("/img/back.png") no-repeat center center #515c5a;
+    background: url("../img/back.png") no-repeat center center #515c5a;
     padding: 10px 5px;
 }
 a.back:hover {
-    background-image: url("/img/back.png");
+    background-image: url("../img/back.png");
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -499,10 +511,10 @@ p {
     padding-bottom: 5px;
 }
 p.email {
-    background-image: url("/img/email.png");
+    background-image: url("../img/email.png");
 }
 p.phone {
-    background-image: url("/img/phone.png");
+    background-image: url("../img/phone.png");
 }
 .col1, .col2 {
     width: 270px;
