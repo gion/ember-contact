@@ -11,14 +11,7 @@
 <body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script src="http://builds.emberjs.com/handlebars-1.0.0-rc.4.js"></script>
-<script src="http://builds.emberjs.com/ember-latest.js"></script>
-<script src="http://builds.emberjs.com.s3.amazonaws.com/ember-data-latest.js"></script>
-<!-- I know I shouldn't link to github repos, but this is a demo 
-<script src="//raw.github.com/rpflorence/ember-localstorage-adapter/master/localstorage_adapter.js"></script>
--->
-<script src="vendor/localstorage_adapter.js"></script>
-<script src="app.js"></script>
+<script src="http://builds.emberjs.com/handlebars-1.0.0.js"></script>
 
 <script type="text/x-handlebars" data-template-name="application">
   <div id="wrapper">
@@ -37,9 +30,9 @@
       {{!-- "even if we do have results, don not show them if we have not actually searched for anything" --}}
         {{#if query}}
           <ul id="searchResults">
-            {{#each searchResults}}
+            {{#each r in searchResults}}
               <li>
-                {{#linkTo view this}}{{name}}{{/linkTo}}
+                {{#linkTo "view" r.id}}{{r.name}}{{/linkTo}}
               </li>
             {{/each}}
           </ul>
@@ -59,7 +52,7 @@
           <dt>{{contactGroup.key}}</dt>
           {{#each contactGroup.list}}
             <dd>
-              {{#linkTo view this classNames="cnt"}}{{name}}{{/linkTo}}
+              {{#linkTo "view" id classNames="cnt"}}{{name}}{{/linkTo}}
             </dd>
           {{/each}}
         </dl>
@@ -118,7 +111,7 @@
   <a class="btn btn-left back" href="#">
     Go Back
   </a>
-  {{#linkTo edit this classNames="btn"}}Edit{{/linkTo}}
+  {{#linkTo "edit" this classNames="btn"}}Edit{{/linkTo}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="edit">
@@ -144,11 +137,18 @@
     <button class="btn btn-left" {{bindAttr disabled=anyError}}>
       Done
     </button>
-    <button class="btn btn-danger">
+    <button class="btn btn-danger" {{action remove}}>
       Delete
     </button>
     </div>
   </form>
 </script>
+
+
+
+<script src="http://builds.emberjs.com/ember-latest.js"></script>
+<script src="http://builds.emberjs.com.s3.amazonaws.com/ember-data-latest.js"></script>
+<script src="vendor/localstorage_adapter.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
